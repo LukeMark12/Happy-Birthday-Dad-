@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Balloons Animation */
+.balloons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.balloon {
+  width: 50px;
+  height: 70px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -150px;
+  animation: rise 6s infinite ease-in;
+  opacity: 0.8;
+}
+
+.balloon:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.balloon1 {
+  left: 10%;
+  background-color: #ff6666;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+
+.balloon2 {
+  left: 25%;
+  background-color: #ffcc66;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+.balloon3 {
+  left: 50%;
+  background-color: #66ccff;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+.balloon4 {
+  left: 75%;
+  background-color: #99ff99;
+  animation-duration: 5s;
+  animation-delay: 3s;
+}
+
+.balloon5 {
+  left: 90%;
+  background-color: #ff99cc;
+  animation-duration: 6s;
+  animation-delay: 4s;
+}
+
+@keyframes rise {
+  0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-1000px) scale(1.1);
+      opacity: 0;
+  }
+}
+
+/* Card Design */
+.card {
+  width: 350px;
+  height: 550px;
+  perspective: 1000px;
+  z-index: 1; /* Ensures the card is above the balloons */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background-color: #ffcccb;
+}
+
+.card-front h1 {
+  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.card-front p {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.card-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  padding: 20px;
+  text-align: left;
+}
+
+.card-back h2 {
+  color: #333;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.card-back p {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.signature {
+  font-style: italic;
+  color: #888;
+  margin-top: 20px;
+}
